@@ -19,3 +19,9 @@ def task_assign(request):
     タスク割り当て画面（画面設計タスク割り当て.jpg）を表示
     """
     return render(request, 'tasks/task_assign.html')
+
+def jyousitop(request):
+    """
+    上司トップ画面を表示
+    """
+    return render(request, 'tasks/jyousitop.html')  

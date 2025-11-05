@@ -7,7 +7,10 @@ app_name = 'tasks'
 
 urlpatterns = [
     # 例: http://.../ でタスクボード画面を表示
-    path('', views.task_board, name='task_board'),
+    path('', views.jyousitop, name='jyousitop'),
+
+    # 例: http://.../ でタスクボード画面を表示
+    path('bord/', views.task_board, name='task_board'),
     
     # 例: http://.../new/ でタスク登録画面を表示
     path('new/', views.task_register, name='task_register'),
