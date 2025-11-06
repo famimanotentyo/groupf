@@ -1,18 +1,28 @@
-// groupf/tasks/static/tasks/js/script.js
 
 document.addEventListener("DOMContentLoaded", function() {
-
     const menuToggle = document.querySelector('.menu-toggle');
     const sidebar = document.querySelector('.app-sidebar');
     const mainContent = document.querySelector('.main-content');
-    
-    // 要素が見つかった場合のみイベントリスナーを設定
-    if (menuToggle && sidebar && mainContent) {
-        menuToggle.addEventListener('click', () => {
-            // サイドバーとメインコンテンツにクラスを付け外しして表示を切り替える
-            sidebar.classList.toggle('is-open');
-            mainContent.classList.toggle('sidebar-open');
-        });
+
+    if (!menuToggle || !sidebar || !mainContent) {
+        console.error('必要な要素が見つかりませんでした。');
+        return;
     }
+
+    menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('is-open');
+        mainContent.classList.toggle('sidebar-open');
+    });
+
+    document.addEventListener('click', function(event) {
+        const isClickInsideSidebar = sidebar.contains(event.target);
+        const isClickOnToggle = menuToggle.contains(event.target);
+
+        if (sidebar.classList.contains('is-open') && !isClickInsideSidebar && !isClickOnToggle) {
+            
+            sidebar.classList.remove('is-open');
+            mainContent.classList.remove('sidebar-open');
+        }
+    });
 
 });
