@@ -8,7 +8,7 @@ urlpatterns = [
     path('', views.top_page, name='top_page'),
 
     path('task_assign/', views.task_assign, name='task_assign'),
-    path('task_list/', views.task_list, name='task_list'),
+    path('task_board/', views.task_board, name='task_board'),
     path('task_redister/', views.task_redister, name='task_redister'),
     
 ]

@@ -16,12 +16,12 @@ def task_assign(request):
     context = {}
     return render(request, 'tasks/task_assign.html', context)
 
-def task_list(request):
+def task_board(request):
     """
     タスク一覧ページを表示するビュー
     """
     context = {}
-    return render(request, 'tasks/task_list.html', context)
+    return render(request, 'tasks/task_board.html', context)
 
 def task_redister(request):
     """
