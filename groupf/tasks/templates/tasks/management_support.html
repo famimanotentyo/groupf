@@ -1,0 +1,42 @@
+{# groupf/tasks/templates/tasks/management_support.html #}
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+<section class="management-menu">
+    <h2>マネジメント支援メニュー</h2>
+    <div class="menu-card-container">
+        <!-- マニュアル作成カード -->
+        <a href="#" class="menu-card">
+            <div class="card-icon">
+                <i class="fas fa-pen-to-square"></i>
+            </div>
+            <div class="card-text">
+                <h3 class="card-title">マニュアル作成</h3>
+                <p class="card-description">マニュアル作成、更新、承認を行います</p>
+            </div>
+        </a>
+
+        <!-- 面談のアドバイスカード -->
+        <a href="#" class="menu-card">
+            <div class="card-icon">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+            <div class="card-text">
+                <h3 class="card-title">面談のアドバイス</h3>
+                <p class="card-description">年齢、性別に合わせた言葉などをアドバイスします</p>
+            </div>
+        </a>
+
+        <!-- メンバータグ表示カード -->
+        <a href="#" class="menu-card">
+            <div class="card-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="card-text">
+                <h3 class="card-title">メンバータグ表示</h3>
+                <p class="card-description">メンバーのタグを閲覧できます</p>
+            </div>
+        </a>
+    </div>
+</section>
+{% endblock %}
