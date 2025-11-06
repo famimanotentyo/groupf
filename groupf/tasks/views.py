@@ -29,3 +29,12 @@ def task_register(request):
     """
     context = {}
     return render(request, 'tasks/task_register.html', context)
+def management_support_page(request):
+    """
+    マネジメント支援ページを表示するビュー
+    """
+    # ★★★ こちらにも、ヘッダー用のタイトルを渡します ★★★
+    context = {
+        'page_title': 'マネジメント支援'
+    }
+    return render(request, 'tasks/management_support.html', context)

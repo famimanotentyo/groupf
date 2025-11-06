@@ -54,4 +54,43 @@ h2 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-
 .task-due, .task-progress { color: #6c757d; min-width: 80px; text-align: right; }
 .charts-container { display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap; }
 .chart-wrapper { text-align: center; }
-.pie-chart { width: 150px; height: 150px; border-radius: 50%; background-image: conic-gradient(#4CAF50 0% 70%, #f44336 70% 90%, #2196F3 90% 100%); }
+.pie-chart { width: 150px; height: 150px; border-radius: 50%; background-image: conic-gradient(#4CAF50 0% 70%, #f44336 70% 90%, #2196F3 90% 100%); }.management-menu .menu-card-container {
+    display: grid;
+    gap: 20px; /* カード間の隙間 */
+}
+
+.management-menu .menu-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #4CAF50; /* 緑色の枠線 */
+    border-radius: 20px; /* 角を丸くする */
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.management-menu .menu-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* ホバー時に影を付ける */
+    transform: translateY(-5px); /* 少し浮き上がる効果 */
+}
+
+.management-menu .card-icon i {
+    font-size: 50px; /* アイコンの大きさ */
+    color: #333;
+    width: 60px; /* アイコンの幅を固定 */
+    text-align: center;
+}
+
+.management-menu .card-text .card-title {
+    margin: 0 0 5px 0;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.management-menu .card-text .card-description {
+    margin: 0;
+    color: #888; /* 説明文の色を薄くする */
+}
