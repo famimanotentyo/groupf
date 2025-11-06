@@ -23,9 +23,9 @@ def task_board(request):
     context = {}
     return render(request, 'tasks/task_board.html', context)
 
-def task_redister(request):
+def task_register(request):
     """
     タスク登録ページを表示するビュー
     """
     context = {}
-    return render(request, 'tasks/task_redister.html', context)
+    return render(request, 'tasks/task_register.html', context)
