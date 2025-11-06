@@ -2,9 +2,13 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     # ルートURL ('/') へのアクセスをviews.top_page関数に紐付ける
     path('', views.top_page, name='top_page'),
 
+    path('task_assign/', views.task_assign, name='task_assign'),
+    path('task_list/', views.task_list, name='task_list'),
+    path('task_redister/', views.task_redister, name='task_redister'),
     
 ]
