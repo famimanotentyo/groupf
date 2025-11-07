@@ -1,0 +1,72 @@
+{% extends 'tasks/base.html' %}
+
+{% block title %}アカウント作成 - プロジェクト管理{% endblock %}
+
+{# ★★★ このページ専用のCSSをここに記述します ★★★ #}
+{% block extra_css %}
+<style>
+    /* フォームコンテナのスタイル */
+    .form-container {
+        max-width: 600px; /* フォームの最大幅を指定 */
+        margin: 2rem auto; /* 中央寄せ */
+        padding: 2rem;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .form-container h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+</style>
+{% endblock %}
+
+
+{# ★★★ メインコンテンツ部分 ★★★ #}
+{% block content %}
+<div class="container-fluid">
+    <div class="form-container">
+        
+        <h2>アカウント作成</h2>
+        
+        <form action="" method="post">
+            {% csrf_token %} <div class="row g-2 mb-3">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="lastName" name="last_name" placeholder="名前（姓）" required>
+                        <label for="lastName">名前（姓）</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="firstName" name="first_name" placeholder="名前（名）" required>
+                        <label for="firstName">名前（名）</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="department" name="department" placeholder="所属部署">
+                <label for="department">所属部署</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                <label for="email">メールアドレス</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="電話番号">
+                <label for="phone">電話番号</label>
+            </div>
+
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">
+                    アカウントを作成
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

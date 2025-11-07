@@ -1,5 +1,5 @@
 # groupf/tasks/views.py
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def top_page(request):
     """
@@ -58,3 +58,20 @@ def task_guide_page(request):
         'page_title': 'タスクガイド'
     }
     return render(request, 'tasks/task_guide.html', context)
+
+def create_account(request):
+    """
+    アカウント作成フォームの表示と処理
+    """
+    if request.method == 'POST':
+
+        # ここでは一旦、成功ページにリダイレクトします。
+        return redirect('tasks:account_create_success')
+    
+    return render(request, 'tasks/account_create.html')
+
+def account_create_success(request):
+    """
+    アカウント作成成功画面の表示
+    """
+    return render(request, 'tasks/account_create_success.html')
