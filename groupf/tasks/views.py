@@ -53,3 +53,8 @@ def task_register_page(request):
         'page_title': 'タスク登録'
     }
     return render(request, 'tasks/task_register.html', context)
+def task_guide_page(request):
+    context = {
+        'page_title': 'タスクガイド'
+    }
+    return render(request, 'tasks/task_guide.html', context)
