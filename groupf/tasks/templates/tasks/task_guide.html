@@ -1,4 +1,4 @@
-{# groupf/tasks/templates/tasks/task_guide.html #}
+{# groupf/tasks/templates/tasks/task_guide.html (アイコン追加・レイアウト維持版) #}
 {% extends 'tasks/base.html' %}
 
 {% block content %}
@@ -13,37 +13,51 @@
             {# Q&A カード #}
             <div class="col-lg-6">
                 <a href="#" class="guide-card">
-                    <h3 class="card-title">Q&A</h3>
-                    <p class="card-description">よくある質問の確認や、新しい質問を投稿できます</p>
+                    {# ★★★ アイコンを追加 ★★★ #}
+                    <i class="guide-icon fas fa-person-dress"></i>
+                    
+                    {# ★★★ テキスト部分をdivで囲む ★★★ #}
+                    <div class="guide-text">
+                        <h3 class="card-title">Q&A</h3>
+                        <p class="card-description">よくある質問の確認や、新しい質問を投稿できます</p>
+                    </div>
                 </a>
             </div>
 
             {# マニュアル作成 カード #}
             <div class="col-lg-6">
                 <a href="#" class="guide-card">
-                    <h3 class="card-title">マニュアル作成</h3>
-                    <p class="card-description">新しい業務マニュアルを作成して登録できます</p>
+                    <i class="guide-icon fas fa-file-circle-plus"></i>
+                    <div class="guide-text">
+                        <h3 class="card-title">マニュアル作成</h3>
+                        <p class="card-description">新しい業務マニュアルを作成して登録できます</p>
+                    </div>
                 </a>
             </div>
 
             {# マニュアル編集 カード #}
             <div class="col-lg-6">
                 <a href="#" class="guide-card">
-                    <h3 class="card-title">マニュアル編集</h3>
-                    <p class="card-description">既存のマニュアル内容を更新・修正できます</p>
+                    <i class="guide-icon fas fa-file-pen"></i>
+                    <div class="guide-text">
+                        <h3 class="card-title">マニュアル編集</h3>
+                        <p class="card-description">既存のマニュアル内容を更新・修正できます</p>
+                    </div>
                 </a>
             </div>
 
             {# マニュアル承認 カード #}
             <div class="col-lg-6">
                 <a href="#" class="guide-card">
-                    <h3 class="card-title">マニュアル承認</h3>
-                    <p class="card-description">作成されたマニュアルを確認し承認を行えます</p>
+                    <i class="guide-icon fas fa-file-circle-check"></i>
+                    <div class="guide-text">
+                        <h3 class="card-title">マニュアル承認</h3>
+                        <p class="card-description">作成されたマニュアルを確認し承認を行えます</p>
+                    </div>
                 </a>
             </div>
 
         </div>
     </section>
-
 </div>
 {% endblock %}
