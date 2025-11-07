@@ -14,5 +14,6 @@ urlpatterns = [
     path('task-assign/', views.task_assign_page, name='task_assign_page'),
     path('task-board/', views.task_board_page, name='task_board_page'),
     path('task-register/', views.task_register_page, name='task_register_page'),
+    path('task-guide/', views.task_guide_page, name='task_guide_page'),
     
 ]
