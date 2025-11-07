@@ -1,0 +1,29 @@
+{# groupf/tasks/templates/tasks/account_management.html #}
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-3">
+    
+    {# 2カラムのグリッドレイアウトを適用 #}
+    <section class="management-menu grid-2">
+        <h2 class="mb-4">アカウント管理</h2>
+        
+        <div class="menu-card-container">
+
+            {# アカウント作成 カード #}
+            <a href="#" class="menu-card">
+                <h3 class="card-title">アカウント作成</h3>
+                <p class="card-description">新しいユーザーアカウントを作成します</p>
+            </a>
+
+            {# アカウント閲覧 カード #}
+            <a href="#" class="menu-card">
+                <h3 class="card-title">アカウント閲覧</h3>
+                <p class="card-description">既存のユーザーアカウント情報を閲覧・編集します</p>
+            </a>
+            
+        </div>
+    </section>
+
+</div>
+{% endblock %}
