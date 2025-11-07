@@ -59,7 +59,6 @@ def task_guide_page(request):
     }
     return render(request, 'tasks/task_guide.html', context)
 
-<<<<<<< HEAD
 def create_account(request):
     """
     アカウント作成フォームの表示と処理
@@ -76,10 +75,8 @@ def account_create_success(request):
     アカウント作成成功画面の表示
     """
     return render(request, 'tasks/account_create_success.html')
-=======
 def account_management_page(request):
     context = {
         'page_title': 'アカウント管理'
     }
     return render(request, 'tasks/account_management.html', context)
->>>>>>> 3ac3f289b3e7a23a4efc1129e925be5d925cddba
