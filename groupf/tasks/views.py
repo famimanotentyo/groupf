@@ -38,3 +38,18 @@ def management_support_page(request):
         'page_title': 'マネジメント支援'
     }
     return render(request, 'tasks/management_support.html', context)
+def task_assign_page(request):
+    context = {
+        'page_title': 'タスク割り当て'
+    }
+    return render(request, 'tasks/task_assign.html', context)
+def task_board_page(request):
+    context = {
+        'page_title': 'タスクボード'
+    }
+    return render(request, 'tasks/task_board.html', context)
+def task_register_page(request):
+    context = {
+        'page_title': 'タスク登録'
+    }
+    return render(request, 'tasks/task_register.html', context)
