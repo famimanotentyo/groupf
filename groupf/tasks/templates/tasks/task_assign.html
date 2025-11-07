@@ -1,87 +1,111 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>タスク割り当て</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
+{# groupf/tasks/templates/tasks/task_assign.html (レイアウト修正版) #}
+{% extends 'tasks/base.html' %}
 
-<body class="bg-light">
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-7"> <h2 class="mb-4">タスク割り当て</h2>
+{% block title %}タスク割り当て - プロジェクト管理{% endblock %}
 
-                <form action="" method="post" class="border rounded-3 p-4 bg-white shadow-sm">
-                    
-                    <div class="mb-3">
-                        <label for="taskSearch" class="form-label">割り当てるタスク:</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="taskSearch" placeholder="タスク名で検索...">
-                            <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+{% block content %}
+<div class="container-fluid px-lg-4">
+    
+    {# ★★★ タイトルをカードの外に出します ★★★ #}
+
+    <div class="row justify-content-center">
+        <div class="col-xl-11 col-lg-12">
+            
+            {# ★★★ card をやめて、他のページと同じ section タグを使います ★★★ #}
+            <section>
+                <form action="" method="post">
+                    <div class="row">
+                        
+                        {# 左カラム #}
+                        <div class="col-lg-6">
+                            <div class="mb-4">
+                                <label for="taskSearch" class="form-label fw-bold">割り当てるタスク:</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="taskSearch" placeholder="タスク名で検索...">
+                                    <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+    
+                            <div class="mb-4">
+                                <label for="taskTags" class="form-label fw-bold">タグ:</label>
+                                <input type="text" class="form-control" id="taskTags" placeholder="（例：重要、経理部）">
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="taskDeadline" class="form-label fw-bold">期限:</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="taskDeadline" placeholder="日付や時刻を選択...">
+                                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# 右カラム #}
+                        <div class="col-lg-6">
+                            <div class="mb-4">
+                                <label for="userSearch" class="form-label fw-bold">担当者を選択または検索:</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="userSearch" placeholder="名前から検索...">
+                                    <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">候補 (メンバーの負荷率):</label>
+                                <div class="d-flex justify-content-around text-center p-3 bg-light rounded">
+                                    <div class="assign-candidate">
+                                        <div class="candidate-icon bg-info">
+                                            <i class="fas fa-user text-white"></i>
+                                        </div>
+                                        <p class="mb-0 mt-2">Aさん</p>
+                                        <strong class="text-danger">90%</strong>
+                                    </div>
+                                    <div class="assign-candidate">
+                                        <div class="candidate-icon bg-success">
+                                            <i class="fas fa-user text-white"></i>
+                                        </div>
+                                        <p class="mb-0 mt-2">Bさん</p>
+                                        <strong class="text-success">65%</strong>
+                                    </div>
+                                    <div class="assign-candidate">
+                                        <div class="candidate-icon bg-warning">
+                                            <i class="fas fa-user text-white"></i>
+                                        </div>
+                                        <p class="mb-0 mt-2">Cさん</p>
+                                        <strong class="text-warning">70%</strong>
+                                    </div>
+                                    <div class="assign-candidate">
+                                        <div class="candidate-icon bg-danger">
+                                            <i class="fas fa-user text-white"></i>
+                                        </div>
+                                        <p class="mb-0 mt-2">Dさん</p>
+                                        <strong class="text-danger">90%</strong>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="taskTags" class="form-label">タグ:</label>
-                        <input type="text" class="form-control" id="taskTags" placeholder="（例：重要、経理部）">
+                    <hr class="my-4">
+
+                    <div class="mb-4">
+                        <label for="taskNotes" class="form-label fw-bold">備考欄:</label>
+                        <textarea class="form-control" id="taskNotes" rows="4"></textarea>
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">候補 (メンバーの負荷率):</label>
-                        <div class="d-flex justify-content-around text-center p-3 bg-light rounded">
-                            <div>
-                                <i class="fas fa-user-circle fa-4x text-info"></i>
-                                <p class="mb-0 mt-1">Aさん</p>
-                                <strong class="text-danger">90%</strong>
-                            </div>
-                            <div>
-                                <i class="fas fa-user-circle fa-4x text-success"></i>
-                                <p class="mb-0 mt-1">Bさん</p>
-                                <strong class="text-success">65%</strong>
-                            </div>
-                            <div>
-                                <i class="fas fa-user-circle fa-4x text-warning"></i>
-                                <p class="mb-0 mt-1">Cさん</p>
-                                <strong class="text-warning">70%</strong>
-                            </div>
-                            <div>
-                                <i class="fas fa-user-circle fa-4x text-danger"></i>
-                                <p class="mb-0 mt-1">Dさん</p>
-                                <strong class="text-danger">90%</strong>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="userSearch" class="form-label">他の人を検索:</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="userSearch" placeholder="名前から検索...">
-                            <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="taskDeadline" class="form-label">期限:</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="taskDeadline" placeholder="日付や時刻を選択...">
-                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                            <span class="input-group-text"><i class="fas fa-clock"></i></span>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="taskNotes" class="form-label">備考欄:</label>
-                        <textarea class="form-control" id="taskNotes" rows="3"></textarea>
-                    </div>
-
-                    <div class="d-grid mt-4">
-                        <button type="submit" class="btn btn-primary btn-lg">タスクを割り当てる</button>
+                    <div class="d-grid mt-5">
+                        <button type="submit" class="btn btn-primary btn-lg py-3">タスクを割り当てる</button>
                     </div>
 
                 </form>
-            </div>
+            </section>
+
         </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

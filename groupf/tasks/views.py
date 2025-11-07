@@ -29,3 +29,38 @@ def task_register(request):
     """
     context = {}
     return render(request, 'tasks/task_register.html', context)
+def management_support_page(request):
+    """
+    マネジメント支援ページを表示するビュー
+    """
+    # ★★★ こちらにも、ヘッダー用のタイトルを渡します ★★★
+    context = {
+        'page_title': 'マネジメント支援'
+    }
+    return render(request, 'tasks/management_support.html', context)
+def task_assign_page(request):
+    context = {
+        'page_title': 'タスク割り当て'
+    }
+    return render(request, 'tasks/task_assign.html', context)
+def task_board_page(request):
+    context = {
+        'page_title': 'タスクボード'
+    }
+    return render(request, 'tasks/task_board.html', context)
+def task_register_page(request):
+    context = {
+        'page_title': 'タスク登録'
+    }
+    return render(request, 'tasks/task_register.html', context)
+def task_guide_page(request):
+    context = {
+        'page_title': 'タスクガイド'
+    }
+    return render(request, 'tasks/task_guide.html', context)
+
+def account_management_page(request):
+    context = {
+        'page_title': 'アカウント管理'
+    }
+    return render(request, 'tasks/account_management.html', context)

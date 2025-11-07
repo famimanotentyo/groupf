@@ -1,0 +1,49 @@
+{# groupf/tasks/templates/tasks/task_guide.html #}
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+<div class="container-fluid px-lg-4 py-3">
+    <div class="page-header">
+        <h2 class="mb-0">タスクガイド</h2>
+    </div>
+
+    <section class="guide-menu">
+        <div class="row g-4">
+            
+            {# Q&A カード #}
+            <div class="col-lg-6">
+                <a href="#" class="guide-card">
+                    <h3 class="card-title">Q&A</h3>
+                    <p class="card-description">よくある質問の確認や、新しい質問を投稿できます</p>
+                </a>
+            </div>
+
+            {# マニュアル作成 カード #}
+            <div class="col-lg-6">
+                <a href="#" class="guide-card">
+                    <h3 class="card-title">マニュアル作成</h3>
+                    <p class="card-description">新しい業務マニュアルを作成して登録できます</p>
+                </a>
+            </div>
+
+            {# マニュアル編集 カード #}
+            <div class="col-lg-6">
+                <a href="#" class="guide-card">
+                    <h3 class="card-title">マニュアル編集</h3>
+                    <p class="card-description">既存のマニュアル内容を更新・修正できます</p>
+                </a>
+            </div>
+
+            {# マニュアル承認 カード #}
+            <div class="col-lg-6">
+                <a href="#" class="guide-card">
+                    <h3 class="card-title">マニュアル承認</h3>
+                    <p class="card-description">作成されたマニュアルを確認し承認を行えます</p>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+{% endblock %}
