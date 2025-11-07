@@ -94,3 +94,48 @@ h2 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-
     margin: 0;
     color: #888; /* 説明文の色を薄くする */
 }
+.management-menu .menu-card-container {
+    display: grid;
+    gap: 25px; /* カード間の隙間を少し広げます */
+    
+    /* カード全体の横幅を制限し、中央に配置します */
+    max-width: 800px; 
+    margin: 0 auto;
+}
+
+.management-menu .menu-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 25px 30px;
+    background-color: #fff;
+    border: 2px solid #4CAF50;
+    border-radius: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.management-menu .menu-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.management-menu .card-icon i {
+    font-size: 55px;
+    color: #333;
+    width: 60px;
+    text-align: center;
+}
+
+.management-menu .card-text .card-title {
+    margin: 0 0 8px 0;
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+.management-menu .card-text .card-description {
+    margin: 0;
+    color: #777;
+    font-size: 1em;
+}
