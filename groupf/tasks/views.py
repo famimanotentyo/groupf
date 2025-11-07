@@ -58,3 +58,9 @@ def task_guide_page(request):
         'page_title': 'タスクガイド'
     }
     return render(request, 'tasks/task_guide.html', context)
+
+def account_management_page(request):
+    context = {
+        'page_title': 'アカウント管理'
+    }
+    return render(request, 'tasks/account_management.html', context)
