@@ -2,7 +2,11 @@
 from django.urls import path
 from . import views
 
+<<<<<<< HEAD
+#aaaa
+=======
 #aaa
+>>>>>>> 3ac3f289b3e7a23a4efc1129e925be5d925cddba
 urlpatterns = [
     # ルートURL ('/') へのアクセスをviews.top_page関数に紐付ける
     path('', views.top_page, name='top_page'),
