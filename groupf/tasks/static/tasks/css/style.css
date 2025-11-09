@@ -10,7 +10,18 @@ body {
 body.body-noscroll { overflow: hidden; }
 
 /* --- ヘッダー --- */
-.app-header { display: flex; align-items: center; gap: 20px; padding: 10px 20px; background-color: #ffffff; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 900; }
+.app-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+    padding: 10px 20px; 
+    background-color: #ffffff; 
+    border-bottom: 1px solid #ddd; 
+    position: sticky; 
+    top: 0; 
+    z-index: 900;
+    transition: margin-left 0.3s ease-in-out; /* ★★★ 変更点 ★★★ */
+}
 .header-part { margin: 0; }
 .logo, .project-name { text-decoration: none; color: #333; }
 .logo { font-weight: bold; font-size: 1.2em; }
@@ -28,12 +39,19 @@ body.body-noscroll { overflow: hidden; }
 .app-sidebar nav li a:hover { background-color: #34495e; }
 .app-sidebar nav li.active a { background-color: #1abc9c; font-weight: bold; }
 
-/* --- オーバーレイ --- */
-#page-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 0; visibility: hidden; transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; z-index: 999; }
-#page-overlay.is-active { opacity: 1; visibility: visible; }
-
 /* --- メインコンテンツ & 共通セクション --- */
-.main-content { padding: 20px; }
+.main-content { 
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out; /* ★★★ 変更点 ★★★ */
+}
+
+/* ★★★★★ 以下をまるごと追記 ★★★★★ */
+/* サイドバーが開いている時にヘッダーとメインコンテンツを右にずらす */
+.app-header.sidebar-is-open,
+.main-content.sidebar-is-open {
+    margin-left: 250px; /* サイドバーの幅と同じ値 */
+}
+
 section { background-color: #ffffff; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 h2 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px; font-size: 1.4em; color: #2c3e50; }
 .page-header { margin-bottom: 20px; }
@@ -77,85 +95,14 @@ h2 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-
 .task-card .task-assignee { font-size: 0.9em; color: #6c757d; margin-bottom: 10px; }
 .task-card .badge { font-size: 0.8em; padding: 4px 8px; }
 
-
-/* ========================================================= */
-/* ★★★★★ タスクガイド & アカウント管理 共通スタイル ★★★★★ */
-/* ========================================================= */
-
-/* --- ① 縦並び・中央揃えレイアウト (タスクガイド用) --- */
-.card-menu-vertical {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    background-color: #fff;
-    border: 2px solid #4CAF50;
-    border-radius: 20px;
-    text-decoration: none;
-    color: inherit;
-    height: 100%;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    text-align: center;
-}
-
-.card-menu-vertical:hover {
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transform: translateY(-5px);
-}
-
-.card-menu-vertical .card-icon {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.card-menu-vertical .card-title {
-    margin: 0 0 15px 0;
-    font-size: 1.8em;
-    font-weight: 500;
-}
-
-.card-menu-vertical .card-description {
-    margin: 0;
-    color: #888;
-    font-size: 1em;
-}
-
-
-/* --- ② 横並び・左寄せレイアウト (アカウント管理用) --- */
-.card-menu-horizontal {
-    display: flex;
-    align-items: center;
-    padding: 30px;
-    background-color: #fff;
-    border: 2px solid #4CAF50;
-    border-radius: 20px;
-    text-decoration: none;
-    color: inherit;
-    height: 100%;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.card-menu-horizontal:hover {
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transform: translateY(-5px);
-}
-
-.card-menu-horizontal .card-icon {
-    font-size: 48px;
-    color: #333;
-    margin-right: 25px;
-}
-
-.card-menu-horizontal .card-title {
-    margin: 0 0 8px 0;
-    font-size: 1.8em;
-    font-weight: 500;
-}
-
-.card-menu-horizontal .card-description {
-    margin: 0;
-    color: #888;
-    font-size: 1em;
-}
+/* --- カードメニュー共通スタイル (タスクガイド/アカウント管理) --- */
+.card-menu-vertical { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; background-color: #fff; border: 2px solid #4CAF50; border-radius: 20px; text-decoration: none; color: inherit; height: 100%; transition: box-shadow 0.3s ease, transform 0.3s ease; text-align: center; }
+.card-menu-vertical:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); transform: translateY(-5px); }
+.card-menu-vertical .card-icon { font-size: 60px; margin-bottom: 25px; color: #333; }
+.card-menu-vertical .card-title { margin: 0 0 15px 0; font-size: 1.8em; font-weight: 500; }
+.card-menu-vertical .card-description { margin: 0; color: #888; font-size: 1em; }
+.card-menu-horizontal { display: flex; align-items: center; padding: 30px; background-color: #fff; border: 2px solid #4CAF50; border-radius: 20px; text-decoration: none; color: inherit; height: 100%; transition: box-shadow 0.3s ease, transform 0.3s ease; }
+.card-menu-horizontal:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); transform: translateY(-5px); }
+.card-menu-horizontal .card-icon { font-size: 60px; color: #333; margin-right: 30px; }
+.card-menu-horizontal .card-title { margin: 0 0 8px 0; font-size: 1.8em; font-weight: 500; }
+.card-menu-horizontal .card-description { margin: 0; color: #888; font-size: 1em; }
