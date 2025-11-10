@@ -7,7 +7,7 @@ def top_page(request):
     """
     # 将来的にここでデータベースからタスク情報を取得し、context経由でテンプレートに渡します。
     context = {}
-    return render(request, 'tasks/index.html', context)
+    return render(request, 'index.html', context)
 
 def task_assign(request):
     """
@@ -59,7 +59,7 @@ def task_guide_page(request):
     }
     return render(request, 'tasks/task_guide.html', context)
 
-def create_account(request):
+def account_create_page(request):
     """
     アカウント作成フォームの表示と処理
     """
@@ -68,15 +68,15 @@ def create_account(request):
         # ここでは一旦、成功ページにリダイレクトします。
         return redirect('tasks:account_create_success')
     
-    return render(request, 'tasks/account_create.html')
+    return render(request, 'acounts/account_create.html')
 
-def account_create_success(request):
+def account_create_success_page(request):
     """
     アカウント作成成功画面の表示
     """
-    return render(request, 'tasks/account_create_success.html')
+    return render(request, 'acounts/account_create_success.html')
 def account_management_page(request):
     context = {
         'page_title': 'アカウント管理'
     }
-    return render(request, 'tasks/account_management.html', context)
+    return render(request, 'acounts/account_management.html', context)
