@@ -17,5 +17,6 @@ urlpatterns = [
     path('account/create/', views.account_create_page, name='account_create_page'),
     path('account/create/success/', views.account_create_success_page, name='account_create_success_page'),
     path('account/', views.account_management_page, name='account_management_page'),
+    path('accounts/', views.account_list_page, name='account_list_page'),
     
 ]

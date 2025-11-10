@@ -68,15 +68,25 @@ def account_create_page(request):
         # ここでは一旦、成功ページにリダイレクトします。
         return redirect('tasks:account_create_success')
     
-    return render(request, 'acounts/account_create.html')
+    return render(request, 'accounts/account_create.html')
 
 def account_create_success_page(request):
     """
     アカウント作成成功画面の表示
     """
-    return render(request, 'acounts/account_create_success.html')
+    return render(request, 'accounts/account_create_success.html')
 def account_management_page(request):
     context = {
         'page_title': 'アカウント管理'
     }
-    return render(request, 'acounts/account_management.html', context)
+    return render(request, 'accounts/account_management.html', context)
+
+def account_list_page(request):
+    """
+    アカウント閲覧画面を表示
+    """
+    # 将来的にはここで
+    # users = User.objects.all() のようにデータを取得し、
+    # context = {'users': users} としてテンプレートに渡します。
+    
+    return render(request, 'accounts/account_list.html')
