@@ -1,5 +1,7 @@
 # groupf/tasks/views.py
 from django.shortcuts import render, redirect
+from django.contrib.auth import logout # logout関数をインポート
+
 
 def top_page(request):
     """
@@ -90,3 +92,31 @@ def account_list_page(request):
     # context = {'users': users} としてテンプレートに渡します。
     
     return render(request, 'accounts/account_list.html')
+
+def account_detail_page(request):
+    """
+    ログイン中のユーザー自身のアカウント詳細画面を表示
+    """
+    # 将来的には request.user からユーザー情報を取得してテンプレートに渡します
+    # context = {'user': request.user}
+    return render(request, 'accounts/account_detail.html')
+
+def account_logout_view_page(request):
+    """
+    ユーザーをログアウトさせ、ログアウト成功画面にリダイレクト
+    """
+    #logout(request) # Django標準のログアウト処理
+    return redirect('logout_success') # ログアウト成功画面へリダイレクト　ここ適当
+
+def account_logout_success_page(request):
+    """
+    ログアウト成功画面を表示
+    """
+    return render(request, 'accounts/account_logout_success.html')
+
+# ログイン画面のビュー (仮)
+def account_login_view_page(request):
+    """
+    ログイン画面を表示 (実際にはdjango.contrib.auth.views.LoginViewなどを使用)
+    """
+    return render(request, 'accounts/login.html') # login.htmlは別途作成が必要です

@@ -18,5 +18,8 @@ urlpatterns = [
     path('account/create/success/', views.account_create_success_page, name='account_create_success_page'),
     path('account/', views.account_management_page, name='account_management_page'),
     path('accounts/', views.account_list_page, name='account_list_page'),
-    
+    path('myaccount/', views.account_detail_page, name='account_detail_page'),
+    path('logout/', views.account_logout_view_page, name='account_logout_view_page'),
+    path('logout/success/', views.account_logout_success_page, name='logout_success'),
+    path('login/', views.account_login_view_page, name='account_login_view_page'), # 仮のログインURL
 ]
