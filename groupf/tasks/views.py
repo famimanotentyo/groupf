@@ -120,3 +120,7 @@ def account_login_view_page(request):
     ログイン画面を表示 (実際にはdjango.contrib.auth.views.LoginViewなどを使用)
     """
     return render(request, 'accounts/login.html') # login.htmlは別途作成が必要です
+def manual_list(request):
+    # 今後、ここでデータベースからマニュアル一覧を取得する処理などを書きます
+    context = {} 
+    return render(request, 'manual/manual_list.html', context)

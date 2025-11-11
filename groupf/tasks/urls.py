@@ -23,4 +23,5 @@ urlpatterns = [
     path('logout/', views.account_logout_view_page, name='account_logout_view_page'),
     path('logout/success/', views.account_logout_success_page, name='logout_success'),
     path('login/', views.account_login_view_page, name='account_login_view_page'), # 仮のログインURL
+    path('manuals/', views.manual_list, name='manual_list'),
 ]

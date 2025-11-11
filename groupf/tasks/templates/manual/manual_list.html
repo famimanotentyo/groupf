@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}マニュアル一覧{% endblock %}
+
+{% block content %}
+<section class="manual-page">
+    <div class="manual-controls">
+        <nav class="manual-tabs">
+            <ul>
+                <li><a href="#" class="active">すべて見る</a></li>
+                <li><a href="#">最近使ったもの</a></li>
+                <li><a href="#">ブックマーク</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn-new-manual">新規作成</a>
+    </div>
+
+    <div class="search-wrapper">
+        <div class="search-bar">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" placeholder="マニュアルを検索">
+        </div>
+    </div>
+
+    <div class="manual-list-container">
+        <div class="manual-list-header">
+            <div class="col-manual-name">マニュアル名</div>
+            <div class="col-creator">作成者</div>
+            <div class="col-created-date">作成日</div>
+        </div>
+        <div class="manual-list-body">
+            <!-- 以下はサンプルのマニュアル項目です。実際にはデータベースからループで表示します。 -->
+            <a href="#" class="manual-list-item">
+                <div class="col-manual-name">新入社員向けPCセットアップ手順</div>
+                <div class="col-creator">田中 太郎</div>
+                <div class="col-created-date">2023-10-26</div>
+            </a>
+            <a href="#" class="manual-list-item">
+                <div class="col-manual-name">経費精算システムの使い方</div>
+                <div class="col-creator">鈴木 花子</div>
+                <div class="col-created-date">2023-10-25</div>
+            </a>
+            <a href="#" class="manual-list-item">
+                <div class="col-manual-name">勤怠管理システムの打刻方法</div>
+                <div class="col-creator">佐藤 次郎</div>
+                <div class="col-created-date">2023-10-22</div>
+            </a>
+            <a href="#" class="manual-list-item">
+                <div class="col-manual-name">営業日報の書き方について</div>
+                <div class="col-creator">高橋 三郎</div>
+                <div class="col-created-date">2023-10-20</div>
+            </a>
+            <a href="#" class="manual-list-item">
+                <div class="col-manual-name">リモートワークのルールと注意点</div>
+                <div class="col-creator">田中 太郎</div>
+                <div class="col-created-date">2023-10-18</div>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
