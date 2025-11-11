@@ -1,0 +1,20 @@
+{# groupf/tasks/templates/partials/_header.html #}
+
+<header class="app-header">
+    <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <a href="#" class="header-part logo">ロゴ</a>
+    <a href="#addTask" class="header-part project-name">プロジェクト</a>
+    <div class="header-part page-title">{{ page_title }}</div>
+    
+    <div class="header-controls">
+        <i class="fas fa-ellipsis-h"></i>
+        <i class="fas fa-plus"></i>
+        <i class="fas fa-search icon-circle"></i>
+        <a href="{% url 'account_detail_page' %}">
+        <i class="fas fa-user icon-circle"></i>
+        </a>
+    </div>
+</header>

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}ログアウト成功 - プロジェクト管理{% endblock %}
+
+{# ★★★ このページ専用のCSSをここに記述します ★★★ #}
+{% block extra_css %}
+<style>
+    .logout-success-container {
+        max-width: 500px;
+        margin: 6rem auto; /* 上下に余白を多く取り中央寄せ */
+        padding: 3rem;
+        text-align: center;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    .logout-success-container h2 {
+        color: #0d6efd; /* Bootstrapのプライマリ色 (青) */
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+    }
+    .logout-icon {
+        font-size: 3.5rem;
+        color: #0d6efd;
+        margin-bottom: 2rem;
+    }
+    .logout-success-container p {
+        color: #6c757d;
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem;
+        /* ここに追加: 行の折り返しを強制せず、スペースで区切られた単語内で改行する */
+        word-break: keep-all; /* 単語の途中で改行しないようにする */
+        white-space: normal;  /* 通常の空白処理に戻す */
+    }
+</style>
+{% endblock %}
+
+
+{# ★★★ メインコンテンツ部分 ★★★ #}
+{% block content %}
+<div class="container-fluid">
+    <div class="logout-success-container">
+
+        <div class="logout-icon">
+            <i class="fas fa-sign-out-alt"></i> {# ログアウトアイコン #}
+        </div>
+        
+        <h2 class="h3">ログアウトしました</h2>
+        
+        <p>
+            サービスをご利用いただきありがとうございました。<br> {# ← ここに<br>タグを追加 #}
+            再度ログインして、プロジェクト管理システムをご利用ください。
+        </p>
+
+        <div class="d-grid">
+            {# 再ログイン画面（またはトップページ）へのリンクを設定 #}
+            <a href="{% url 'account_login_view_page' %}" class="btn btn-primary btn-lg">
+                再ログイン
+            </a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{# このページでは追加のJSは必須ではありません #}
+{% block extra_js %}
+{% endblock %}
