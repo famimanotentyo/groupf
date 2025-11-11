@@ -1,5 +1,5 @@
-{# groupf/tasks/templates/tasks/account_management.html (縦並び・中央揃え版) #}
-{% extends 'tasks/base.html' %}
+{# groupf/tasks/templates/acounts/account_management.html (縦並び・中央揃え版) #}
+{% extends 'base.html' %}
 
 {% block content %}
 <div class="container-fluid px-lg-4 py-3">
@@ -13,7 +13,7 @@
             {# アカウント作成 カード #}
             <div class="col-lg-6">
                 {# ★★★ クラス名を "card-menu-vertical" に変更 ★★★ #}
-                <a href="#" class="card-menu-vertical">
+                <a href="{% url 'account_create_page' %}" class="card-menu-vertical">
                     <i class="card-icon fas fa-user-plus"></i>
                     <div class="card-text">
                         <h3 class="card-title">アカウント作成</h3>
@@ -25,7 +25,7 @@
             {# アカウント閲覧 カード #}
             <div class="col-lg-6">
                 {# ★★★ クラス名を "card-menu-vertical" に変更 ★★★ #}
-                <a href="#" class="card-menu-vertical">
+                <a href="{% url 'account_list_page' %}" class="card-menu-vertical">
                     <i class="card-icon fa-solid fa-magnifying-glass"></i>
                     <div class="card-text">
                         <h3 class="card-title">アカウント閲覧</h3>

@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}アカウント詳細 - プロジェクト管理{% endblock %}
+
+{# ★★★ このページ専用のCSSをここに記述します ★★★ #}
+{% block extra_css %}
+<style>
+    .account-detail-card {
+        max-width: 700px; /* カードの最大幅 */
+        margin: 2rem auto; /* 中央寄せ */
+        padding: 2.5rem;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        border: none;
+    }
+    .account-detail-card h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #343a40;
+        font-weight: 600;
+    }
+    .detail-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+    .detail-item:last-child {
+        border-bottom: none;
+    }
+    .detail-item dt {
+        font-weight: 500;
+        color: #6c757d;
+        flex-basis: 30%; /* ラベルの幅を調整 */
+    }
+    .detail-item dd {
+        margin-bottom: 0;
+        color: #343a40;
+        text-align: right;
+        flex-basis: 70%; /* 値の幅を調整 */
+    }
+    .btn-group-bottom {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        justify-content: center;
+    }
+</style>
+{% endblock %}
+
+
+{# ★★★ メインコンテンツ部分 ★★★ #}
+{% block content %}
+<div class="container-fluid">
+    <div class="card account-detail-card">
+        <h2>あなたのアカウント情報</h2>
+        
+        <dl>
+            <div class="detail-item">
+                <dt>氏名</dt>
+                <dd>金子 ケビン</dd>
+            </div>
+            <div class="detail-item">
+                <dt>所属部署</dt>
+                <dd>システム開発部</dd>
+            </div>
+            <div class="detail-item">
+                <dt>役職</dt>
+                <dd>マネージャー</dd>
+            </div>
+            <div class="detail-item">
+                <dt>メールアドレス</dt>
+                <dd>kaneko-kevin@example.com</dd>
+            </div>
+            <div class="detail-item">
+                <dt>社員番号</dt>
+                <dd>000-000-123</dd>
+            </div>
+            <div class="detail-item">
+                <dt>生年月日</dt>
+                <dd>2005年 00月 00日</dd>
+            </div>
+            <div class="detail-item">
+                <dt>入社日</dt>
+                <dd>2026年 4月</dd>
+            </div>
+        </dl>
+
+        <div class="btn-group-bottom">
+            {# 編集ボタン - 将来的に編集画面へのリンクを設定 #}
+            <a href="#" class="btn btn-outline-primary btn-lg">アカウントを編集</a>
+            {# ログアウトボタン - ログアウト処理を行うURLを設定 #}
+            <a href="{% url 'account_logout_view_page' %}" class="btn btn-danger btn-lg">ログアウト</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{# このページでは追加のJSは必須ではありません #}
+{% block extra_js %}
+{% endblock %}

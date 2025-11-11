@@ -1,5 +1,7 @@
 # groupf/tasks/views.py
 from django.shortcuts import render, redirect
+from django.contrib.auth import logout # logout関数をインポート
+
 
 def top_page(request):
     """
@@ -7,7 +9,7 @@ def top_page(request):
     """
     # 将来的にここでデータベースからタスク情報を取得し、context経由でテンプレートに渡します。
     context = {}
-    return render(request, 'tasks/index.html', context)
+    return render(request, 'index.html', context)
 
 def task_assign(request):
     """
@@ -59,7 +61,7 @@ def task_guide_page(request):
     }
     return render(request, 'tasks/task_guide.html', context)
 
-def create_account(request):
+def account_create_page(request):
     """
     アカウント作成フォームの表示と処理
     """
@@ -68,15 +70,53 @@ def create_account(request):
         # ここでは一旦、成功ページにリダイレクトします。
         return redirect('tasks:account_create_success')
     
-    return render(request, 'tasks/account_create.html')
+    return render(request, 'accounts/account_create.html')
 
-def account_create_success(request):
+def account_create_success_page(request):
     """
     アカウント作成成功画面の表示
     """
-    return render(request, 'tasks/account_create_success.html')
+    return render(request, 'accounts/account_create_success.html')
 def account_management_page(request):
     context = {
         'page_title': 'アカウント管理'
     }
-    return render(request, 'tasks/account_management.html', context)
+    return render(request, 'accounts/account_management.html', context)
+
+def account_list_page(request):
+    """
+    アカウント閲覧画面を表示
+    """
+    # 将来的にはここで
+    # users = User.objects.all() のようにデータを取得し、
+    # context = {'users': users} としてテンプレートに渡します。
+    
+    return render(request, 'accounts/account_list.html')
+
+def account_detail_page(request):
+    """
+    ログイン中のユーザー自身のアカウント詳細画面を表示
+    """
+    # 将来的には request.user からユーザー情報を取得してテンプレートに渡します
+    # context = {'user': request.user}
+    return render(request, 'accounts/account_detail.html')
+
+def account_logout_view_page(request):
+    """
+    ユーザーをログアウトさせ、ログアウト成功画面にリダイレクト
+    """
+    #logout(request) # Django標準のログアウト処理
+    return redirect('logout_success') # ログアウト成功画面へリダイレクト　ここ適当
+
+def account_logout_success_page(request):
+    """
+    ログアウト成功画面を表示
+    """
+    return render(request, 'accounts/account_logout_success.html')
+
+# ログイン画面のビュー (仮)
+def account_login_view_page(request):
+    """
+    ログイン画面を表示 (実際にはdjango.contrib.auth.views.LoginViewなどを使用)
+    """
+    return render(request, 'accounts/login.html') # login.htmlは別途作成が必要です
