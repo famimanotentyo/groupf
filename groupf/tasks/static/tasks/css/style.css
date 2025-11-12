@@ -402,3 +402,42 @@ h2 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-
 .submit-btn:hover {
     background-color: #0b5ed7;
 }
+
+.advice-menu-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* カード間のスペース */
+    margin-top: 40px;
+    flex-wrap: wrap; /* 画面が狭い時に折り返す */
+}
+
+.advice-menu-card {
+    display: flex;
+    align-items: center;
+    padding: 30px 40px;
+    background-color: #fff;
+    border: 2px solid #4CAF50; /* 緑色の枠線 */
+    border-radius: 20px;
+    text-decoration: none;
+    color: inherit;
+    min-width: 320px; /* カードの最小幅 */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.advice-menu-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    transform: translateY(-5px); /* 少し浮き上がる効果 */
+}
+
+.advice-menu-card .card-icon {
+    font-size: 70px; /* アイコンのサイズを大きく */
+    color: #333;
+    margin-right: 30px;
+    width: 80px; /* アイコンの幅を固定してレイアウトを安定させる */
+    text-align: center;
+}
+
+.advice-menu-card .card-title {
+    font-size: 2.2em; /* 文字を大きく */
+    font-weight: 500;
+}

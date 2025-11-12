@@ -25,5 +25,5 @@ urlpatterns = [
     path('login/', views.account_login_view_page, name='account_login_view_page'), # 仮のログインURL
     path('manuals/', views.manual_list, name='manual_list'),
     path('interview-request/', views.interview_request_page, name='interview_request_page'),
-
+    path('interview-advice/', views.interview_advice_menu_page, name='interview_advice_menu_page'),
 ]

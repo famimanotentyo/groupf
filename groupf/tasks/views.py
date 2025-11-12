@@ -129,3 +129,8 @@ def interview_request_page(request):
         'page_title': '面談依頼'
     }
     return render(request, 'tasks/interview_request.html', context)
+def interview_advice_menu_page(request):
+    context = {
+        'page_title': '面談アドバイス'
+    }
+    return render(request, 'tasks/interview_advice_menu.html', context)
