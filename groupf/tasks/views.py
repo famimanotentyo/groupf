@@ -124,3 +124,8 @@ def manual_list(request):
     # 今後、ここでデータベースからマニュアル一覧を取得する処理などを書きます
     context = {} 
     return render(request, 'manual/manual_list.html', context)
+def interview_request_page(request):
+    context = {
+        'page_title': '面談依頼'
+    }
+    return render(request, 'tasks/interview_request.html', context)

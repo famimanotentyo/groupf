@@ -280,3 +280,125 @@ h2 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-
     display: flex; /* ボタンを横並びにする */
     gap: 10px; /* ボタン同士の間隔を10pxあける */
 }
+
+/* --- 面談依頼フォームのスタイル --- */
+.interview-form-section {
+    max-width: 700px;
+    margin: 0 auto; /* 中央寄せ */
+}
+
+.interview-form-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.interview-form-section input[type="text"],
+.interview-form-section textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.interview-form-section input[type="text"]:focus,
+.interview-form-section textarea:focus {
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+}
+
+.input-with-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input-wrapper {
+    position: relative;
+    flex-grow: 1; /* 横幅いっぱいまで広がる */
+}
+
+.search-input-wrapper .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+}
+
+.search-input-wrapper input {
+    padding-left: 35px; /* アイコン分のスペースを確保 */
+}
+
+.btn-search {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-search:hover {
+    background-color: #e0e0e0;
+}
+
+.datetime-picker {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.datetime-picker input {
+    width: 150px; /* 日付入力欄の幅を固定 */
+}
+
+.calendar-icon {
+    font-size: 1.5em;
+    color: #555;
+    cursor: pointer;
+}
+
+.time-display {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.interview-form-section textarea {
+    min-height: 120px;
+    resize: vertical; /* 縦方向のみリサイズ可能に */
+}
+
+.submit-button-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.submit-btn {
+    padding: 12px 40px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #0d6efd;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #0b5ed7;
+}
