@@ -1,4 +1,4 @@
-{# groupf/tasks/templates/tasks/management_support.html (2+1レイアウト版) #}
+{# groupf/tasks/templates/tasks/management_support.html #}
 {% extends 'base.html' %}
 
 {% block content %}
@@ -9,21 +9,11 @@
             <h2 class="mb-0">マネジメント支援メニュー</h2>
         </div>
 
-        {# ★★★ Bootstrapのグリッドシステムを使ってレイアウトを構築 ★★★ #}
-        <div class="row g-4 justify-content-center">
+        {# ★★★ 2つのボタンを1つの .row の中に配置して横並びにします ★★★ #}
+        <div class="row g-4">
             
-            {# --- 上の行（2つのボタン）--- #}
-            <div class="col-lg-5">                                 
-                <a href="{% url 'manual_list' %}"  class="card-menu-horizontal h-100">
-                    <i class="card-icon fas fa-pen-to-square"></i>
-                    <div class="card-text">
-                        <h3 class="card-title">マニュアル作成</h3>
-                        <p class="card-description">マニュアル作成、更新、承認を行います</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-5">
+            {# --- 1つ目のボタン（面談のアドバイス）--- #}
+            <div class="col-lg-6">
                 <a href="#" class="card-menu-horizontal h-100">
                     <i class="card-icon fas fa-lightbulb"></i>
                     <div class="card-text">
@@ -32,12 +22,9 @@
                     </div>
                 </a>
             </div>
-
-        </div>
-
-        {# ★★★ 下の行（中央に1つのボタン）★★★ #}
-        <div class="row g-4 justify-content-center mt-3">
-            <div class="col-lg-5">
+            
+            {# --- 2つ目のボタン（メンバータグ表示）--- #}
+            <div class="col-lg-6">
                 <a href="#" class="card-menu-horizontal h-100">
                     <i class="card-icon fas fa-users"></i>
                     <div class="card-text">
@@ -46,6 +33,7 @@
                     </div>
                 </a>
             </div>
+
         </div>
 
     </section>

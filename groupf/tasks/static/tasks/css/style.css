@@ -403,9 +403,10 @@ h2 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-
     background-color: #0b5ed7;
 }
 
+/* --- 面談アドバイスメニューのスタイル --- */
 .advice-menu-container {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; を削除し、要素が幅いっぱいに広がるようにします */
     gap: 40px; /* カード間のスペース */
     margin-top: 40px;
     flex-wrap: wrap; /* 画面が狭い時に折り返す */
@@ -420,7 +421,11 @@ h2 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-
     border-radius: 20px;
     text-decoration: none;
     color: inherit;
-    min-width: 320px; /* カードの最小幅 */
+    flex: 1; /* 親要素の幅に対して均等に伸びるようにします */
+    justify-content: flex-start;     
+    /* max-width: 450px; を削除して、幅の制限をなくします */
+    min-width: 320px; /* 画面が狭くなった時の最小幅は維持します */
+    
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
