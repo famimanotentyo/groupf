@@ -9,7 +9,7 @@
             <h2 class="mb-0">マネジメント支援メニュー</h2>
         </div>
 
-        {# ★★★ 2つのボタンを1つの .row の中に配置して横並びにします ★★★ #}
+        {# ★★★ 上の行（2つのボタン） ★★★ #}
         <div class="row g-4">
             
             {# --- 1つ目のボタン（面談のアドバイス）--- #}
@@ -33,7 +33,19 @@
                     </div>
                 </a>
             </div>
+        </div>
 
+        {# ★★★ 下の行（中央に配置した1つのボタン） ★★★ #}
+        <div class="row g-4 justify-content-center mt-4">
+            <div class="col-lg-6">
+                <a href="{% url 'interview_request_page' %}" class="card-menu-horizontal h-100">
+                    <i class="card-icon fas fa-calendar-alt"></i>
+                    <div class="card-text">
+                        <h3 class="card-title">面談日程調整</h3>
+                        <p class="card-description">面談の日程を調整します</p>
+                    </div>
+                </a>
+            </div>
         </div>
 
     </section>
