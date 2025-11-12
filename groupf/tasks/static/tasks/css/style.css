@@ -293,3 +293,140 @@ h2 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-
     font-size: 2.2em; /* 文字を大きく */
     font-weight: 500;
 }
+
+
+/* --- マニュアル承認ページのスタイル --- */
+.approval-page {
+    background-color: #fff;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.approval-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.status-filter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.filter-btn {
+    display: inline-block;
+    padding: 6px 16px;
+    border: 1px solid #4CAF50;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: 500;
+    background-color: #fff;
+}
+
+.item-count {
+    font-size: 1em;
+    font-weight: 500;
+    color: #333;
+}
+
+.sort-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.sort-btn .fa-sort {
+    font-size: 1.2em;
+}
+.sort-btn .fa-chevron-down {
+    font-size: 0.8em;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.approval-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc; /* Excelのような外枠 */
+}
+
+.approval-table th,
+.approval-table td {
+    border: 1px solid #ccc; /* Excelのようなグリッド線 */
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.approval-table thead th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+/* 各列の幅を調整 */
+.approval-table .col-name { width: 45%; }
+.approval-table .col-date { width: 20%; }
+.approval-table .col-type { width: 15%; }
+.approval-table .col-actions { width: 6%; text-align: center; }
+
+/* 種類タグのスタイル */
+.file-type {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #fff;
+    font-weight: 500;
+}
+.file-type.pdf { background-color: #e53935; } /* 赤 */
+.file-type.excel { background-color: #43a047; } /* 緑 */
+
+
+/* ボタン共通スタイル */
+.approval-table .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+/* 詳細ボタン */
+.btn-details {
+    padding: 5px 15px;
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+}
+
+/* 承認・差戻しボタン */
+.btn-approve, .btn-reject {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2em;
+    border-radius: 8px; /* 四角丸のボタン */
+}
+
+.btn-approve {
+    border: 2px solid #ff9800; /* オレンジ */
+    color: #ff9800;
+}
+
+.btn-reject {
+    border: 2px solid #2196F3; /* 青 */
+    color: #2196F3;
+}
