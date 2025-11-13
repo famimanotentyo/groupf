@@ -26,4 +26,6 @@ urlpatterns = [
     path('manuals/', views.manual_list, name='manual_list'),
     path('interview-request/', views.interview_request_page, name='interview_request_page'),
     path('interview-advice/', views.interview_advice_menu_page, name='interview_advice_menu_page'),
+    path('manuals/approval/', views.manual_approval_list, name='manual_approval_list'), 
+    path('manuals/create/', views.manual_create_view, name='manual_create_view'),
 ]

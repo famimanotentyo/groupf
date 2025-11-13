@@ -38,36 +38,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {# ここからDjangoのループでデータを表示する例 #}
-                    {# {% for manual in unapproved_manuals %} #}
-                    <tr>
-                        <td>天才入部届</td>
-                        <td>2025/11/10</td>
-                        <td><span class="file-type pdf">PDF</span></td>
-                        <td><a href="#" class="btn btn-details">詳細</a></td>
-                        <td><button class="btn btn-approve">〇</button></td>
-                        <td><button class="btn btn-reject">×</button></td>
-                    </tr>
-                    <tr>
-                        <td>厳正猫飯指南</td>
-                        <td>2025/11/10</td>
-                        <td><span class="file-type excel">Excel</span></td>
-                        <td><a href="#" class="btn btn-details">詳細</a></td>
-                        <td><button class="btn btn-approve">〇</button></td>
-                        <td><button class="btn btn-reject">×</button></td>
-                    </tr>
-                    {# {% empty %}
-                    <tr>
-                        <td colspan="6" class="text-center py-4">承認待ちのマニュアルはありません。</td>
-                    </tr>
-                    {% endfor %} #}
-
-                    <!-- 以下はレイアウト確認用の空の行 -->
-                    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                </tbody>
+    {% for manual in unapproved_manuals %}
+        <tr>
+            <td>{{ manual.name }}</td>
+            <td>{{ manual.date }}</td>
+            {# ファイル種別に応じてクラスを動的に変更する例 #}
+            <td>
+                {% if manual.type == 'PDF' %}
+                    <span class="file-type pdf">PDF</span>
+                {% elif manual.type == 'Excel' %}
+                    <span class="file-type excel">Excel</span>
+                {% else %}
+                    <span class="file-type">{{ manual.type }}</span>
+                {% endif %}
+            </td>
+            <td><a href="#" class="btn btn-details">詳細</a></td>
+            <td><button class="btn btn-approve">〇</button></td>
+            <td><button class="btn btn-reject">×</button></td>
+        </tr>
+    {% empty %}
+        <tr>
+            <td colspan="6" class="text-center py-4">承認待ちのマニュアルはありません。</td>
+        </tr>
+    {% endfor %}
+</tbody>
             </table>
         </div>
     </section>

@@ -4,23 +4,22 @@
 
 {% block content %}
 <div class="container-fluid px-lg-4 py-3">
-    <section class="manual-create-page">
+    {# ★★★ sectionタグのクラス名を変更し、中央寄せと余白を調整 ★★★ #}
+    <section class="manual-create-section">
         <div class="page-header">
             <h2 class="mb-0">マニュアル作成画面</h2>
         </div>
 
-        <form action="{% url 'your_manual_submit_url_name' %}" method="post" enctype="multipart/form-data">
+        <form action="{% url 'manual_create_view' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
 
             <!-- ファイル選択フォームグループ -->
             <div class="form-group">
                 <label for="manual_file">ファイル</label>
                 <div class="file-input-wrapper">
-                    <!-- 表示用のテキストボックス -->
+                    <!-- ★★★ placeholder を追加 ★★★ -->
                     <input type="text" id="file_name_display" placeholder="ファイルが選択されていません" readonly>
-                    <!-- 見た目上のボタン -->
                     <button type="button" id="browse_btn" class="btn btn-browse">参照</button>
-                    <!-- 実際に機能するファイル選択input (非表示) -->
                     <input type="file" id="manual_file" name="manual_file" hidden>
                 </div>
             </div>
@@ -28,6 +27,7 @@
             <!-- 説明入力フォームグループ -->
             <div class="form-group">
                 <label for="manual_description">説明</label>
+                <!-- ★★★ placeholder を追加 ★★★ -->
                 <textarea id="manual_description" name="manual_description" rows="8" placeholder="マニュアルの説明を入力してください..."></textarea>
             </div>
 
@@ -48,12 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const fileInput = document.getElementById('manual_file');
     const fileNameDisplay = document.getElementById('file_name_display');
 
-    // 「参照」ボタンがクリックされたら、非表示のファイルinputをクリックする
     browseBtn.addEventListener('click', () => {
         fileInput.click();
     });
 
-    // ファイルが選択されたら、そのファイル名を表示用のテキストボックスに表示する
     fileInput.addEventListener('change', () => {
         if (fileInput.files.length > 0) {
             fileNameDisplay.value = fileInput.files[0].name;
