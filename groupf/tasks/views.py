@@ -147,7 +147,7 @@ def interview_advice_menu_page(request):
 
 # Gemini API の設定 (settings.py からキーを読み込む)
 genai.configure(api_key=settings.GEMINI_API_KEY)
-model = genai.GenerativeModel('gemini-pro') # Gemini Pro モデルを使用
+model = genai.GenerativeModel('gemini-2.5-flashs') # Gemini Pro モデルを使用
 
 # タグ生成プロンプトの定義
 TAG_GENERATION_PROMPT_TEMPLATE = """
