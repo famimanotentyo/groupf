@@ -9,7 +9,7 @@ urlpatterns = [
 
     path('task_assign/', views.task_assign, name='task_assign'),
     path('task_board/', views.task_board, name='task_board'),
-    path('task_register/', views.task_register, name='task_register'),
+    # path('task_register/', views.task_register, name='task_register'),
     path('management/', views.management_support_page, name='management_support_page'),
     path('task-assign/', views.task_assign_page, name='task_assign_page'),
     path('task-board/', views.task_board_page, name='task_board_page'),
