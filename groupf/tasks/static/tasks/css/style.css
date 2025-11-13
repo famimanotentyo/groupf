@@ -94,7 +94,7 @@ h2 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-
 .task-card .task-assignee { font-size: 0.9em; color: #6c757d; margin-bottom: 10px; }
 .task-card .badge { font-size: 0.8em; padding: 4px 8px; }
 
-/* --- カードメニュー共通スタイル (タスクガイド/アカウント管理) --- */
+/* --- カードメニュー共通スタイル --- */
 .card-menu-vertical { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; background-color: #fff; border: 2px solid #4CAF50; border-radius: 20px; text-decoration: none; color: inherit; height: 100%; transition: box-shadow 0.3s ease, transform 0.3s ease; text-align: center; }
 .card-menu-vertical:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); transform: translateY(-5px); }
 .card-menu-vertical .card-icon { font-size: 60px; margin-bottom: 25px; color: #333; }
@@ -122,169 +122,100 @@ h2 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-
 .search-bar input { width: 100%; padding: 12px 15px 12px 45px; border: 1px solid #ccc; border-radius: 4px; font-size: 1em; }
 .search-bar input::placeholder { color: #888; }
 .search-bar input:focus { outline: none; border-color: #0d6efd; box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2); }
-.manual-list-container { border: 1px solid #e0e0e0; border-radius: 4px; }
-.manual-list-header, .manual-list-item { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: center; padding: 12px 15px; }
-.manual-list-header { font-weight: bold; color: #6c757d; background-color: #f8f9fa; font-size: 0.9em; border-bottom: 1px solid #e0e0e0; }
-.manual-list-item { text-decoration: none; color: inherit; border-top: 1px solid #f0f0f0; transition: background-color 0.2s; }
-.manual-list-body .manual-list-item:first-child { border-top: none; }
-.manual-list-item:hover { background-color: #f8f9fa; }
-.col-manual-name { font-weight: 500; color: #0d6efd; }
-.col-creator, .col-created-date { font-size: 0.9em; color: #555; }
 
 /* --- 面談依頼フォームのスタイル --- */
-.interview-form-section {
-    max-width: 900px;
-    margin: 0 auto;
-}
-.interview-form-section h2 { text-align: center; margin-bottom: 30px; }
-.form-group { margin-bottom: 25px; }
-.form-group label { display: block; font-weight: 500; margin-bottom: 8px; color: #333; }
-.interview-form-section input[type="text"],
-.interview-form-section textarea { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 1em; transition: border-color 0.2s, box-shadow 0.2s; }
-.interview-form-section input[type="text"]:focus,
-.interview-form-section textarea:focus { outline: none; border-color: #0d6efd; box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2); }
-.input-with-button { display: flex; align-items: center; gap: 10px; }
-.search-input-wrapper { position: relative; flex-grow: 1; }
-.search-input-wrapper .search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #777; }
-.search-input-wrapper input { padding-left: 40px; }
-.btn-search { padding: 10px 20px; border: 1px solid #ccc; background-color: #f0f0f0; border-radius: 4px; cursor: pointer; font-weight: 500; }
-.btn-search:hover { background-color: #e0e0e0; }
-.datetime-picker { display: flex; align-items: center; gap: 15px; }
-.datetime-picker input { width: 150px; }
-.calendar-icon { font-size: 1.5em; color: #555; cursor: pointer; }
-.time-display { font-size: 0.9em; color: #666; }
-.interview-form-section textarea { min-height: 120px; resize: vertical; }
-.submit-button-container { margin-top: 40px; text-align: center; }
-.submit-btn { padding: 12px 40px; font-size: 1.1em; font-weight: bold; color: #fff; background-color: #0d6efd; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.2s; }
-.submit-btn:hover { background-color: #0b5ed7; }
+.interview-form-section { max-width: 900px; margin: 0 auto; }
 
-/* --- 面談アドバイスメニューのスタイル --- */
-.advice-menu-container { display: flex; gap: 40px; margin-top: 40px; flex-wrap: wrap; }
-.advice-menu-card { display: flex; align-items: center; padding: 30px 40px; background-color: #fff; border: 2px solid #4CAF50; border-radius: 20px; text-decoration: none; color: inherit; flex: 1; justify-content: flex-start; min-width: 320px; transition: box-shadow 0.3s ease, transform 0.3s ease; }
-.advice-menu-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); transform: translateY(-5px); }
-.advice-menu-card .card-icon { font-size: 70px; color: #333; margin-right: 30px; width: 80px; text-align: center; }
-.advice-menu-card .card-title { font-size: 2.2em; font-weight: 500; }
-
-/* --- マニュアル承認ページのスタイル --- */
-.approval-page { background-color: #fff; padding: 20px 25px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-.approval-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-.status-filter { display: flex; align-items: center; gap: 15px; }
-.filter-btn { display: inline-block; padding: 6px 16px; border: 1px solid #4CAF50; border-radius: 15px; text-decoration: none; color: #4CAF50; font-weight: 500; background-color: #fff; }
-.item-count { font-size: 1em; font-weight: 500; color: #333; }
-.sort-btn { display: flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid #ccc; background-color: #fff; border-radius: 4px; cursor: pointer; }
-.sort-btn .fa-sort { font-size: 1.2em; }
-.sort-btn .fa-chevron-down { font-size: 0.8em; }
-.table-responsive { overflow-x: auto; }
-.approval-table { width: 100%; border-collapse: collapse; border: 1px solid #ccc; }
-.approval-table th, .approval-table td { border: 1px solid #ccc; padding: 12px 15px; text-align: left; vertical-align: middle; white-space: nowrap; }
-.approval-table thead th { background-color: #f8f9fa; font-weight: 600; color: #333; }
-.approval-table .col-name { width: 45%; }
-.approval-table .col-date { width: 20%; }
-.approval-table .col-type { width: 15%; }
-.approval-table .col-actions { width: 6%; text-align: center; }
-.file-type { padding: 3px 8px; border-radius: 4px; font-size: 0.9em; color: #fff; font-weight: 500; }
-.file-type.pdf { background-color: #e53935; }
-.file-type.excel { background-color: #43a047; }
-.approval-table .btn { display: inline-flex; justify-content: center; align-items: center; border-radius: 6px; text-decoration: none; font-weight: bold; cursor: pointer; background-color: #fff; box-sizing: border-box; }
-.btn-details { padding: 5px 15px; border: 2px solid #4CAF50; color: #4CAF50; }
-.btn-approve, .btn-reject { width: 36px; height: 36px; font-size: 1.2em; border-radius: 8px; }
-.btn-approve { border: 2px solid #ff9800; color: #ff9800; }
-.btn-reject { border: 2px solid #2196F3; color: #2196F3; }
-
-/* --- マニュアル作成ページのスタイル (新デザイン) --- */
-.manual-create-section {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 30px 40px;
+/* --- マニュアル一覧ページのリスト部分のスタイル (新レイアウト) --- */
+.manual-list-container { 
+    border-radius: 4px;
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    /* ★★★ グリッド背景の記述を削除 ★★★ */
+    padding: 10px 0;
 }
-
-.manual-create-section .page-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.manual-create-section .page-header h2 {
-    border-bottom: none;
-    font-size: 1.8em;
-    font-weight: 600;
-}
-
-.manual-create-section .form-group {
-    margin-bottom: 30px;
-}
-
-.manual-create-section label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-.file-input-wrapper {
-    display: flex;
+.manual-list-header,
+.manual-list-item {
+    display: grid;
+    /* ★★★ 変更点: auto を一番右に移動 ★★★ */
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1.5fr) minmax(0, 1fr) auto;
+    gap: 20px;
     align-items: center;
-    gap: 10px;
+    padding: 15px 20px; /* ★★★ 左右のパディングを戻しました (お好みで 15px 0 にしてもOK) ★★★ */
 }
-
-.manual-create-section input[type="text"],
-.manual-create-section textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1em;
-    background-color: #fff;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.manual-create-section input[type="text"]:focus,
-.manual-create-section textarea:focus {
-    outline: none;
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
-}
-
-#file_name_display {
-    flex-grow: 1;
-    background-color: #f8f9fa;
-    color: #6c757d;
-}
-
-.manual-create-section .btn {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
+.manual-list-header {
     font-weight: 500;
-    padding: 10px 20px;
-    transition: background-color 0.2s;
+    color: #0d6efd;
+    font-size: 0.9em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.manual-list-item {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid #f0f0f0;
+}
+.manual-list-body .manual-list-item:last-child {
+    border-bottom: none;
+}
+.col-manual-name a {
+    font-weight: 500;
+    color: #0d6efd;
+    text-decoration: none;
+    font-size: 1.05em;
+}
+.col-manual-name a:hover {
+    text-decoration: underline;
+}
+.col-creator,
+.col-created-date {
+    font-size: 0.9em;
+    color: #555;
 }
 
-.btn-browse {
-    background-color: #e6f4ea; /* 薄い緑色 */
-    white-space: nowrap;
+/* --- 操作メニュー用スタイル --- */
+.col-actions {
+    position: relative;
+    text-align: right; /* テキスト揃えを右に */
 }
-.btn-browse:hover {
-    background-color: #d1e7dd;
-}
-
-.submit-container {
-    margin-top: 40px;
-    text-align: center;
-}
-
-.btn-submit {
-    width: 100%;
-    max-width: 500px;
-    padding: 12px;
+.action-btn {
+    background: none;
+    border: none;
+    padding: 0 5px; /* クリックしやすくするために少しパディングを追加 */
     font-size: 1.1em;
     font-weight: bold;
-    background-color: #e6f4ea; /* 薄い緑色 */
+    letter-spacing: 1px;
+    cursor: pointer;
+    line-height: 1;
+    color: #555;
 }
-.btn-submit:hover {
-    background-color: #d1e7dd;
+.action-btn:hover {
+    color: #000;
+}
+.action-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* ★★★ 変更点: 右端基準で表示するように変更 ★★★ */
+    right: 0; 
+    /* left: 50%; transform: translateX(-50%); は削除 */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    min-width: 120px;
+    overflow: hidden;
+}
+.action-menu.show {
+    display: block;
+}
+.action-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+.action-menu a:hover {
+    background-color: #f5f5f5;
 }

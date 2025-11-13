@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block head %}
+    {# base.htmlにheadブロックがあれば、そこに追加します #}
+    <link rel="stylesheet" href="{% static 'css/your_style_file.css' %}">
+{% endblock %}
+
 {% block title %}マニュアル一覧{% endblock %}
 
 {% block content %}
@@ -13,12 +18,9 @@
                 <li><a href="#">ブックマーク</a></li>
             </ul>
         </nav>
-
-        <!-- ★★★★★ 3つのボタンをこの div で囲みます ★★★★★ -->
         <div class="manual-actions">
             <a href="{% url 'manual_create_view' %}" class="btn-new-manual">新規作成</a>
         </div>
-        <!-- ★★★★★ ここまで ★★★★★ -->
     </div>
 
     <div class="search-wrapper">
@@ -31,36 +33,61 @@
     <div class="manual-list-container">
         <div class="manual-list-header">
             <div class="col-manual-name">マニュアル名</div>
+            <div class="col-actions"></div> {# 操作ボタン用の空ヘッダー #}
             <div class="col-creator">作成者</div>
             <div class="col-created-date">作成日</div>
         </div>
         <div class="manual-list-body">
-            <!-- 以下はサンプルのマニュアル項目です。実際にはデータベースからループで表示します。 -->
-            <a href="#" class="manual-list-item">
-                <div class="col-manual-name">新入社員向けPCセットアップ手順</div>
+            <div class="manual-list-item">
+                <div class="col-manual-name">
+                    <a href="#">新入社員向けPCセットアップ手順</a>
+                </div>
+                <div class="col-actions">
+                    <button type="button" class="action-btn">・・・</button>
+                    <div class="action-menu">
+                        <a href="#">ブックマーク</a>
+                        <a href="#">お気に入り</a>
+                        <a href="#">ダウンロード</a>
+                        <a href="#">削除</a>
+                    </div>
+                </div>
                 <div class="col-creator">田中 太郎</div>
                 <div class="col-created-date">2023-10-26</div>
-            </a>
-            <a href="#" class="manual-list-item">
-                <div class="col-manual-name">経費精算システムの使い方</div>
+            </div>
+
+            <div class="manual-list-item">
+                <div class="col-manual-name">
+                    <a href="#">経費精算システムの使い方</a>
+                </div>
+                <div class="col-actions">
+                    <button type="button" class="action-btn">・・・</button>
+                    <div class="action-menu">
+                        <a href="#">ブックマーク</a>
+                        <a href="#">お気に入り</a>
+                        <a href="#">ダウンロード</a>
+                        <a href="#">削除</a>
+                    </div>
+                </div>
                 <div class="col-creator">鈴木 花子</div>
                 <div class="col-created-date">2023-10-25</div>
-            </a>
-            <a href="#" class="manual-list-item">
-                <div class="col-manual-name">勤怠管理システムの打刻方法</div>
+            </div>
+            
+            <div class="manual-list-item">
+                <div class="col-manual-name">
+                    <a href="#">勤怠管理システムの打刻方法</a>
+                </div>
+                <div class="col-actions">
+                    <button type="button" class="action-btn">・・・</button>
+                    <div class="action-menu">
+                        <a href="#">ブックマーク</a>
+                        <a href="#">お気に入り</a>
+                        <a href="#">ダウンロード</a>
+                        <a href="#">削除</a>
+                    </div>
+                </div>
                 <div class="col-creator">佐藤 次郎</div>
                 <div class="col-created-date">2023-10-22</div>
-            </a>
-            <a href="#" class="manual-list-item">
-                <div class="col-manual-name">営業日報の書き方について</div>
-                <div class="col-creator">高橋 三郎</div>
-                <div class="col-created-date">2023-10-20</div>
-            </a>
-            <a href="#" class="manual-list-item">
-                <div class="col-manual-name">リモートワークのルールと注意点</div>
-                <div class="col-creator">田中 太郎</div>
-                <div class="col-created-date">2023-10-18</div>
-            </a>
+            </div>
         </div>
     </div>
 </section>
