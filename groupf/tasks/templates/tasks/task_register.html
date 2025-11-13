@@ -1,59 +1,172 @@
-{# groupf/tasks/templates/tasks/task_register.html #}
 {% extends 'base.html' %}
+{% load static %} {# staticファイルを読み込むために必要 (もしJS/CSSをstaticに置くなら) #}
 
 {% block title %}タスク登録 - プロジェクト管理{% endblock %}
 
+{% block extra_css %}
+<style>
+    /* ページのタイトル部分のスタイル */
+    .section-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #343a40;
+        margin-bottom: 2.5rem;
+        text-align: center;
+    }
+    /* カードの一般的なスタイル */
+    .content-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        padding: 2.5rem;
+    }
+    /* 音声入力ボタンのスタイル */
+    .microphone-button {
+        border: none;
+        background-color: #e9ecef; /* 少しグレー系の背景 */
+        color: #6c757d;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .microphone-button:hover {
+        background-color: #dee2e6;
+        color: #495057;
+    }
+    /* メッセージのスタイル (django.contrib.messages用) */
+    .alert-message {
+        position: fixed;
+        top: 70px; /* ナビバーの下に表示 */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1050;
+        width: auto;
+        min-width: 300px;
+        max-width: 90%;
+        padding: 1rem 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        text-align: center;
+        opacity: 0; /* 最初は非表示 */
+        animation: fadeInOut 5s forwards; /* 5秒で表示・消去 */
+    }
+    @keyframes fadeInOut {
+        0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+        10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    }
+</style>
+{% endblock %}
+
+
 {% block content %}
+<div class="container-fluid px-lg-4">
+    <h2 class="section-title">{{ page_title }}</h2> {# page_title は views.py から渡される #}
 
-<div class="container mt-4">
     <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            
-            <div class="card shadow-sm">
-                <div class="card-header bg-white py-3">
-                    <h2 class="mb-0 text-center">タスク登録</h2>
-                </div>
-                <div class="card-body p-4">
-                    <form action="" method="post">
-                        
-                        <div class="text-end mb-2">
-                            <button type="button" class="btn btn-outline-primary btn-sm">タグ生成</button>
-                        </div>
+        <div class="col-xl-7 col-lg-8 col-md-10"> {# フォームの幅を調整 #}
+            <div class="content-card">
+                <form action="{% url 'task_register_page' %}" method="post">
+                    {% csrf_token %} {# Djangoフォームには必須のセキュリティトークン #}
 
-                        <div class="mb-3">
-                            <label for="taskName" class="form-label fw-bold">タスク名:</label>
-                            <input type="text" class="form-control" id="taskName">
-                        </div>
+                    <div class="d-flex justify-content-end mb-3">
+                        <button type="button" class="btn btn-outline-secondary">タグ生成</button> {# Gemini連携用ボタン (今は機能なし) #}
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="taskDeadline" class="form-label fw-bold">期限:</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="taskDeadline" placeholder="日付や時刻を選択...">
-                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                                <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                    <div class="mb-4">
+                        {{ form.title.label_tag }} {# "タスク名" ラベル #}
+                        {{ form.title }} {# タスク名入力フィールド #}
+                        {% if form.title.help_text %}
+                            <div class="form-text">{{ form.title.help_text }}</div>
+                        {% endif %}
+                        {% if form.title.errors %} {# タスク名のバリデーションエラー #}
+                            <div class="text-danger small mt-1">
+                                {% for error in form.title.errors %}{{ error }}{% endfor %}
                             </div>
-                        </div>
+                        {% endif %}
+                    </div>
 
-                        <div class="text-center my-4">
-                            <p class="text-muted small">音声でタスクを登録</p>
-                            <button type="button" class="btn btn-light btn-lg border rounded-circle" style="width: 80px; height: 80px;">
-                                <i class="fas fa-microphone fa-2x text-muted"></i>
-                            </button>
+                    <div class="mb-4">
+                        {{ form.due_date.label_tag }} {# "期限" ラベル #}
+                        <div class="input-group">
+                            {{ form.due_date }} {# 期限入力フィールド (datetime-local) #}
+                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span> {# カレンダーアイコン #}
+                            <span class="input-group-text"><i class="fas fa-clock"></i></span>    {# 時計アイコン #}
                         </div>
+                        {% if form.due_date.help_text %}
+                            <div class="form-text">{{ form.due_date.help_text }}</div>
+                        {% endif %}
+                        {% if form.due_date.errors %} {# 期限のバリデーションエラー #}
+                            <div class="text-danger small mt-1">
+                                {% for error in form.due_date.errors %}{{ error }}{% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
 
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-lg">タスクボードに登録</button>
+                    <div class="text-center my-4">
+                        <p class="text-muted">音声でタスクを登録</p>
+                        <button type="button" class="btn microphone-button rounded-circle p-3">
+                            <i class="fas fa-microphone fa-2x"></i>
+                        </button>
+                    </div>
+
+                    <div class="mb-4">
+                        {{ form.notes.label_tag }} {# "タスク備考欄" ラベル #}
+                        {{ form.notes }} {# タスク備考欄入力フィールド #}
+                        {% if form.notes.help_text %}
+                            <div class="form-text">{{ form.notes.help_text }}</div>
+                        {% endif %}
+                        {% if form.notes.errors %} {# 備考欄のバリデーションエラー #}
+                            <div class="text-danger small mt-1">
+                                {% for error in form.notes.errors %}{{ error }}{% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    {# フォーム全体の非フィールドエラー（例えば、cleanメソッドで発生したエラー） #}
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger mb-4">
+                            {% for error in form.non_field_errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
                         </div>
-                    </form>
-                </div>
+                    {% endif %}
+
+                    <div class="d-grid mt-5">
+                        <button type="submit" class="btn btn-primary btn-lg py-3">タスクボードに登録</button>
+                    </div>
+
+                </form>
             </div>
-
         </div>
     </div>
 </div>
 
+{# Django Messages フレームワークのメッセージ表示 #}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %} alert-message" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
 {% endblock %}
 
 {% block extra_js %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // メッセージ表示後、自動的に消えるようにする
+        const messageElements = document.querySelectorAll('.alert-message');
+        messageElements.forEach(function(element) {
+            // CSSアニメーションで自動的にフェードアウトするので、特別なJSは不要
+            // 必要であれば、setTimeoutで要素をDOMから削除することもできる
+            // setTimeout(() => {
+            //     element.remove();
+            // }, 5000); // 5秒後に要素を削除
+        });
+
+        // 日付入力フィールドのUIを調整（必要であれば）
+        // ブラウザネイティブピッカーを使用するため、JSでのライブラリ導入は一旦不要
+    });
+</script>
 {% endblock %}

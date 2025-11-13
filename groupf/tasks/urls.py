@@ -2,17 +2,14 @@
 from django.urls import path
 from . import views
 
-<<<<<<< HEAD
 #dii
-=======
->>>>>>> 7b0dad87c7f66825b8a1061a8e9ef53e2313d29d
 urlpatterns = [
     # ルートURL ('/') へのアクセスをviews.top_page関数に紐付ける
     path('', views.top_page, name='top_page'),
 
     path('task_assign/', views.task_assign, name='task_assign'),
     path('task_board/', views.task_board, name='task_board'),
-    path('task_register/', views.task_register, name='task_register'),
+    # path('task_register/', views.task_register, name='task_register'),
     path('management/', views.management_support_page, name='management_support_page'),
     path('task-assign/', views.task_assign_page, name='task_assign_page'),
     path('task-board/', views.task_board_page, name='task_board_page'),
@@ -26,4 +23,7 @@ urlpatterns = [
     path('logout/', views.account_logout_view_page, name='account_logout_view_page'),
     path('logout/success/', views.account_logout_success_page, name='logout_success'),
     path('login/', views.account_login_view_page, name='account_login_view_page'), # 仮のログインURL
+    path('manuals/', views.manual_list, name='manual_list'),
+    path('interview-request/', views.interview_request_page, name='interview_request_page'),
+    path('interview-advice/', views.interview_advice_menu_page, name='interview_advice_menu_page'),
 ]

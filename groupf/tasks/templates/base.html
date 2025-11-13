@@ -1,4 +1,3 @@
-{# groupf/tasks/templates/base.html #}
 {% load static %}
 <!DOCTYPE html>
 <html lang="ja">
@@ -16,7 +15,7 @@
         {% include 'partials/_header.html' %}
         {% include 'partials/_sidebar.html' %}
 
-        <!-- ★★★★★ 背景を暗くするためのオーバーレイ要素を追加 ★★★★★ -->
+        <!-- ★★★★★ オーバーレイ要素は不要です ★★★★★ -->
 
         <main class="main-content">
             {% block content %}{% endblock %}

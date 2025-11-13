@@ -52,10 +52,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'groupf.urls'
 
+# ★★★★★ ここを修正しました ★★★★★
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # プロジェクト直下の 'templates' フォルダを読み込むように設定
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,6 +68,7 @@ TEMPLATES = [
         },
     },
 ]
+# ★★★★★ ここまで ★★★★★
 
 WSGI_APPLICATION = 'groupf.wsgi.application'
 
@@ -103,9 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+# 日本語設定とタイムゾーン設定を追加
+LANGUAGE_CODE = 'ja'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -117,7 +120,16 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# プロジェクト直下の 'static' フォルダを読み込む設定を追加
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# GEMINI_API_KEY = "AIzaSyCv9kWgnAIUo2EbeZR7Zd0MDMYTglGKGEI"
