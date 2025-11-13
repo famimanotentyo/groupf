@@ -243,3 +243,21 @@ def interview_advice_menu_page(request):
 #     return render(request, 'tasks/task_register.html', context)
 
 # # --- 既存のビュー関数は省略 ---
+
+
+def manual_approval_list(request):
+    unapproved_manuals = [
+        {'name': '天才入部届', 'date': '2025/11/10', 'type': 'PDF'},
+        {'name': '厳正猫飯指南', 'date': '2025/11/10', 'type': 'Excel'},
+    ]
+    context = {
+        'unapproved_manuals': unapproved_manuals,
+    }
+    return render(request, 'manual/manual_approval.html', context)
+def manual_create_view(request):
+
+    if request.method == 'POST':
+        uploaded_file = request.FILES.get('manual_file')
+        description = request.POST.get('manual_description')
+        return redirect('manual_list') # 'manual_list'はマニュアル一覧ページのURL名と仮定
+    return render(request, 'manual/manual_create.html')
